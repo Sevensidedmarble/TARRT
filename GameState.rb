@@ -1,0 +1,5 @@
+# GameState
+
+class GameState
+
+end
