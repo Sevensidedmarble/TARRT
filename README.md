@@ -1,0 +1,1 @@
+Based on numerous sources, including the wonderful ROT.JS for Javascript.
