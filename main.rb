@@ -1,10 +1,12 @@
 # main.rb
 
 require 'gosu'
+require_relative 'player'
 
 class Game
     def initialize
         @score = 0
+        @player = Player.new
     end
 
     def generate_map(size)
@@ -21,6 +23,11 @@ class App < Gosu::Window
         @background_image = Gosu::Image.new("gfx/other/forest.jpg", :tileable => true)        
         @last_milliseconds = 0 # required for delta time calculation
         @gothic_font = Gosu::Font.new(self, "gfx/fonts/alagard.ttf", 16)
+        @font01 = Gosu::Font.new(self, "gfx/fonts/romulus.ttf", 16)
+    end
+
+    def needs_cursor?
+        true
     end
 
     # helper that simplifies some text drawing
@@ -42,6 +49,8 @@ class App < Gosu::Window
         @background_image.draw(0, 0, 0)
         width = @gothic_font.text_width("Start Game", scale_x = 1)
         draw_text((self.width/2) - (width/2), self.height/2, "Start Game", @gothic_font, 0xff_DBD9D6)
+        puts @G.player # this doesn't work
+        @G.player.draw # ultimately trying to run this line
     end
 
     def button_down(id)
