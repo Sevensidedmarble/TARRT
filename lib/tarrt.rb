@@ -14,8 +14,9 @@ require 'app'
 #
 module TARRT
   def self.init
-    game = Game.new
-    game.begin!
+    App.game = Game.new
+    App.init
+    App.game.begin!
   rescue StandardError => e
     puts 'Something went wrong: '
     puts e.class.name << ' : ' << e.message

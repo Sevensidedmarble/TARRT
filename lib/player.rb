@@ -7,11 +7,14 @@ class Player
   end
 
   def update
-    # ...
   end
 
   def draw
-    draw_text( @x, @y, @char, App.font01, 0xff_DBD9D6)
+    App.draw_text(@x, @y, @char)
     #Gosu::Color.BLACK
+  end
+
+  def warp(x, y)
+    @x, @y = x, y
   end
 end
