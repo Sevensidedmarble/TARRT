@@ -1,5 +1,3 @@
-# player.rb
-
 class Player
   def initialize
     @x = 1
