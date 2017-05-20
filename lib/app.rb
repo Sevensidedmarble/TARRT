@@ -7,9 +7,15 @@ module App
 
   class << self
     def init
+      self.game = Game.new
       self.fonts = {}
       fonts[:alagard] = Gosu::Font.new(game.window, 'gfx/fonts/alagard.ttf', 16)
       fonts[:romulus] = Gosu::Font.new(game.window, 'gfx/fonts/romulus.ttf', 16)
+    end
+
+    def begin!
+      init if self.game.nil?
+      game.begin!
     end
 
     def draw_text(x, y, text, font = :romulus, color = 0xff_DBD9D6)
@@ -21,7 +27,7 @@ module App
       if method_name.to_s.end_with?('=')
         @@config.send(method_name, *args)
       else
-        @@config.send(method_name) || super
+        @@config.send(method_name) rescue super
       end
     end
   end
