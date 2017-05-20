@@ -9,4 +9,11 @@ class GameWindow < Gosu::Window
   def draw
     @background_image.draw(0, 0, 0)
   end
+
+  def button_down(id)
+    case id
+    when Gosu::KbEscape
+      close
+    end
+  end
 end
