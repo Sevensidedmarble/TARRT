@@ -1,5 +1,3 @@
-# GameState
-
 class GameState
 
 end
