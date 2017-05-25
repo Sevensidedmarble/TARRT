@@ -13,12 +13,12 @@ require 'app'
 # Top-level game wrapper
 #
 module TARRT
-  def self.init
-    App.begin!
-  rescue StandardError => e
-    puts 'Something went wrong: '
-    puts e.class.name << ' : ' << e.message
-  end
+    def self.init
+        App.begin!
+    rescue StandardError => e
+        puts 'Something went wrong: '
+        puts e.class.name << ' : ' << e.message
+    end
 end
 
 TARRT.init
